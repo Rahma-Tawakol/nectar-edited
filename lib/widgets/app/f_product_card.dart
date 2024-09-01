@@ -4,18 +4,65 @@ import 'package:nectar/core/extensions/num.dart';
 import 'package:nectar/core/utils/colors.dart';
 import 'package:nectar/widgets/app_text.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key}) : super(key: key);
+import '../../core/route_utils/route_utils.dart';
+import '../../views/product_details/view.dart';
+
+class FProductCard extends StatefulWidget {
+  final int counter;
+
+  FProductCard({Key? key, required this.counter}) : super(key: key);
 
   static double get height => 260.height;
   static double get width => 180.width;
   static double get aspectRatio => width / height;
 
   @override
+  State<FProductCard> createState() => _FProductCardState();
+}
+
+class _FProductCardState extends State<FProductCard> {
+  List<String> images = [
+    'assets/images/bananas.png',
+    'assets/images/orange.png',
+    'assets/images/apple.png',
+  ];
+
+  List<String> titles = [
+    'Bananas',
+    'Orange',
+    'Apple',
+  ];
+
+  List<String> descriptions = [
+    '1kg, Price',
+    '1kg, Price',
+    'Each, Price',
+
+  ];
+
+  List<String> prices = [
+    '\$1.86',
+    '\$4.50',
+    '\$0.69',
+  ];
+
+  @override
   Widget build(BuildContext context) {
+    String selectedImage = '';
+    String Title = '';
+    String Description = '';
+    String Price = '';
+
+    if (widget.counter < images.length) {
+      selectedImage = images[widget.counter];
+      Title = titles[widget.counter];
+      Description = descriptions[widget.counter];
+      Price = prices[widget.counter];
+    } else {}
+
     return Container(
-      height: height,
-      width: width,
+      height: FProductCard.height,
+      width: FProductCard.width,
       padding: EdgeInsets.symmetric(
         horizontal: 16.width,
         vertical: 16.height,
@@ -25,7 +72,7 @@ class ProductCard extends StatelessWidget {
         children: [
           Expanded(
             child: Image.network(
-              'https://static.vecteezy.com/system/resources/previews/029/200/269/non_2x/banana-transparent-background-free-png.png',
+              selectedImage,
               width: double.infinity,
               fit: BoxFit.cover,
             ),
@@ -35,16 +82,19 @@ class ProductCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppText(
-                  title: 'Banana',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16.font,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                InkWell(
+                  onTap: () => RouteUtils.push(context, ProductDetailsView()),
+                  child: AppText(
+                    title: Title,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.font,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 SizedBox(height: 4.height),
                 AppText(
-                  title: '1kg, Priceg',
+                  title: Description,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   color: AppColors.darkGrey,
@@ -55,7 +105,7 @@ class ProductCard extends StatelessWidget {
                   children: [
                     Expanded(
                       child: AppText(
-                        title: '\$24.99',
+                        title: Price,
                         fontSize: 18.font,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,

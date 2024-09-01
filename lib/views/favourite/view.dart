@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:nectar/core/extensions/build_context.dart';
 import 'package:nectar/core/extensions/num.dart';
 import 'package:nectar/core/route_utils/route_utils.dart';
 import 'package:nectar/core/utils/colors.dart';
 import 'package:nectar/widgets/app_button.dart';
-import 'package:nectar/widgets/app_text.dart';
 
 import '../../widgets/app/favourite_product_card.dart';
 import '../../widgets/app_app_bar.dart';

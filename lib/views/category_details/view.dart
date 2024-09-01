@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nectar/core/extensions/num.dart';
 import 'package:nectar/core/extensions/string.dart';
 import 'package:nectar/core/route_utils/route_utils.dart';
-import 'package:nectar/widgets/app/product_card.dart';
+import 'package:nectar/widgets/app/v_product_card.dart';
 import 'package:nectar/widgets/app_app_bar.dart';
 
 import '../filter/view.dart';
@@ -25,16 +25,16 @@ class CategoryDetailsView extends StatelessWidget {
         ),
       ),
       body: GridView.builder(
-        itemCount: 7,
+        itemCount: 5,
         padding: EdgeInsets.all(16),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
-          childAspectRatio: ProductCard.aspectRatio,
+          childAspectRatio: VProductCard.aspectRatio,
         ),
         itemBuilder: (context, index) {
-          return ProductCard();
+          return VProductCard(counter: index);
         },
       ),
     );

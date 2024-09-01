@@ -29,15 +29,16 @@ class ExploreView extends StatelessWidget {
             SizedBox(height: 20.height),
             Expanded(
               child: GridView.builder(
-                itemCount: 10,
+                itemCount: 4,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: CategoryCard.aspectRatio,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 12,
                 ),
+                //
                 itemBuilder: (context, index) {
-                  return CategoryCard();
+                  return CategoryCard(counter:index);
                 },
               ),
             ),

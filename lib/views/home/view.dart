@@ -6,7 +6,7 @@ import 'package:nectar/core/utils/colors.dart';
 import 'package:nectar/widgets/app_text.dart';
 import 'package:nectar/widgets/app_text_field.dart';
 
-import '../../widgets/app/product_card.dart';
+import '../../widgets/app/v_product_card.dart';
 import '../../widgets/app/section_title.dart';
 import '../../widgets/app_carousel.dart';
 
@@ -69,12 +69,12 @@ class HomeView extends StatelessWidget {
                   ),
                   SizedBox(height: 20.height),
                   SizedBox(
-                    height: ProductCard.height,
+                    height: VProductCard.height,
                     child: ListView.separated(
                       itemCount: 3,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return ProductCard();
+                        return VProductCard(counter: index);
                       },
                       separatorBuilder: (context, index) => SizedBox(width: 16.width),
                     ),
@@ -85,12 +85,12 @@ class HomeView extends StatelessWidget {
                   ),
                   SizedBox(height: 20.height),
                   SizedBox(
-                    height: ProductCard.height,
+                    height: VProductCard.height,
                     child: ListView.separated(
                       itemCount: 4,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return ProductCard();
+                        return VProductCard(counter: index);
                       },
                       separatorBuilder: (context, index) => SizedBox(width: 16.width),
                     ),

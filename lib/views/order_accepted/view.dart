@@ -1,12 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:nectar/core/extensions/num.dart';
 import 'package:nectar/core/extensions/string.dart';
 import 'package:nectar/core/utils/colors.dart';
 import 'package:nectar/widgets/app_button.dart';
 import 'package:nectar/widgets/app_text.dart';
-import '../../core/route_utils/route_utils.dart';
 
 class OrderAcceptedView extends StatelessWidget {
   const OrderAcceptedView({Key? key}) : super(key: key);

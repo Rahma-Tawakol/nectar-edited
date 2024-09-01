@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nectar/core/extensions/num.dart';
-
-import '../core/utils/colors.dart';
 import 'app_text.dart';
 
 class AppButton extends StatelessWidget {

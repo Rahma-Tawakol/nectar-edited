@@ -4,10 +4,10 @@ import 'package:nectar/core/extensions/num.dart';
 import 'package:nectar/core/utils/colors.dart';
 
 class AppCarousel extends StatefulWidget {
-  const AppCarousel({Key? key, required this.images}) : super(key: key);
+  const AppCarousel({Key? key, required this.images, this.height,}) : super(key: key);
 
   final List<String> images;
-
+  final double? height;
   @override
   State<AppCarousel> createState() => _AppCarouselState();
 }
@@ -32,7 +32,7 @@ class _AppCarouselState extends State<AppCarousel> {
             );
           }).toList(),
           options: CarouselOptions(
-            height: 116.height,
+            height: widget.height ??  116.height,
             viewportFraction: 1,
             enableInfiniteScroll: false,
             onPageChanged: (index, _) => setState(() => currentIndex = index),
